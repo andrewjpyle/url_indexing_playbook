@@ -1,0 +1,78 @@
+name: Bug report
+description: Something doesn't work the way the docs say it should.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug. Please fill in as much as you can.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe what you saw vs. what you expected.
+      placeholder: |
+        I ran `manage.py ping_search_engines ...` and got X. I expected Y.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      description: Minimum steps on a fresh install. The reference demo (`examples/states_of_matter/`) is a good base.
+      placeholder: |
+        1. ...
+        2. ...
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: url_indexing_playbook version
+      placeholder: "0.1.0.dev0"
+    validations:
+      required: true
+
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.12.x"
+    validations:
+      required: true
+
+  - type: input
+    id: django
+    attributes:
+      label: Django version
+      placeholder: "5.1.x"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: command
+    attributes:
+      label: Which command?
+      options:
+        - ping_search_engines
+        - enable_crawler_hints
+        - generate_gsc_checklist
+        - Library-level (not a command)
+    validations:
+      required: true
+
+  - type: textarea
+    id: traceback
+    attributes:
+      label: Traceback or error output
+      description: Paste the full traceback if there is one.
+      render: shell
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Anything else
+      description: Custom adapter? Custom GSC callable? Cloudflare auth scheme? Anything that might be relevant.
