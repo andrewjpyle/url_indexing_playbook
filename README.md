@@ -265,3 +265,13 @@ MIT. See [LICENSE](LICENSE).
 ## Author
 
 Built and maintained by [Andrew J. Pyle](https://andrewjpyle.com). Originally extracted from production infrastructure running URL-indexing rollouts across portfolio sites.
+
+---
+
+## Part of a larger system
+
+`url_indexing_playbook` is one of the reusable pieces pulled out of a private, autonomous build
+system and released on its own — the machine needed it, so it built it, and now
+it's yours too, MIT-licensed.
+
+See the rest of the parts → **https://autonomousaj.com/parts**
