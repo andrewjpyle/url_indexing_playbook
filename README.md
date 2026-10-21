@@ -28,7 +28,7 @@ Plus:
 
 ## What it deliberately doesn't do
 
-- ❌ **Bundle a Google Search Console client.** Google auth is hard, libraries change, you probably already have one. Ships a worked-example wrapper in `docs/gsc-client-injection.md` so you can be running in ~5 min.
+- ❌ **Bundle a Google Search Console client.** Google auth is hard, libraries change, you probably already have one. The Quickstart (step 5) has a worked wrapper around `google-api-python-client` so you can be running in about 5 minutes.
 - ❌ **Generate or submit sitemap.xml.** Different concern.
 - ❌ **Crawl your site.** Bring your URL list; we ship it to the right APIs.
 - ❌ **Track indexing performance over time.** Use Search Console / GA4 for that. The `IndexingRun` log only records *what was sent*.
@@ -134,7 +134,7 @@ manage.py ping_search_engines \
     --indexnow-key $INDEXNOW_KEY
 ```
 
-See [`docs/gsc-client-injection.md`](docs/gsc-client-injection.md) for OAuth alternatives + service-account setups.
+The wrapper uses Application Default Credentials (`google.auth.default`), so a service account or `gcloud auth application-default login` both work. Any callable with the same `(site_url, inspection_url) -> dict` signature is accepted.
 
 ---
 
@@ -232,7 +232,7 @@ The OSS package never sees your model — it only sees `IndexingTarget` dataclas
 ## Roadmap
 
 `0.1.0` (next):
-- [ ] Worked GSC client wrapper docs
+- [x] Worked GSC client wrapper (Quickstart step 5)
 - [ ] PyPI publish
 
 `0.2.0` (planned):
