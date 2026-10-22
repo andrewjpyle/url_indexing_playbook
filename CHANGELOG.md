@@ -7,7 +7,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 ## [Unreleased]
 
 ### Added
-- _(nothing yet)_
+- **`sitemap_funnel`** management command and `url_indexing_playbook.sitemaps` module: robots.txt `Sitemap:` discovery, sitemap and sitemap-index URL counts, and a GET helper that retries 429/503 with a capped, `Retry-After`-aware backoff.
+
+### Changed
+- README no longer claims a "100/100 GSC inspections, 50/50 Cloudflare zones" result. No capture or test backs it.
 
 ## [0.1.0.dev0] — initial scaffold
 
