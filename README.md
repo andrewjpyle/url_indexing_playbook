@@ -4,7 +4,7 @@
 
 A Django reusable app for the operational task of "I just shipped 50 new URLs — tell Google, Bing, Yandex, and friends." Ships three focused management commands for the three sanctioned-ish paths, plus a markdown deeplink generator for the manual GSC fallback.
 
-Battle-tested on a real rollout: **100/100 GSC inspections green across 50 sites; 50/50 Cloudflare zones enabled and purged in a single command.**
+Extracted from a production rollout across dozens of sites. The unit tests mock every external call, so no capture of a live run ships with this repo.
 
 ## Status
 
@@ -12,11 +12,13 @@ Battle-tested on a real rollout: **100/100 GSC inspections green across 50 sites
 
 ## What it does
 
-Three commands, one focused operation each:
+Four commands, one focused operation each:
 
 - **`ping_search_engines`** — GSC URL Inspection API ping + IndexNow direct submission to Bing/Yandex/Naver/Seznam/Yep. Skip either with `--no-gsc` / `--no-indexnow`.
 - **`enable_crawler_hints`** — for Cloudflare-fronted sites: enable Crawler Hints (CF's own IndexNow integration) + bulk cache purge. No origin key file deploy needed.
 - **`generate_gsc_checklist`** — markdown of clickable deeplinks to GSC's "Request Indexing" UI. The only path Google actually promises will queue your URL.
+
+- **`sitemap_funnel`** — read-only. Finds each host's sitemap (the `Sitemap:` line in `robots.txt` first, `/sitemap.xml` as a fallback), counts its URLs, and prints that next to the number of URLs you queued. Fetches retry on HTTP 429/503 and honor `Retry-After` (capped at 6 seconds per wait).
 
 Plus:
 
